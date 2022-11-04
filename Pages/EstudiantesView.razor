@@ -1,0 +1,90 @@
+@page "/Estudiantes"
+
+@using Data.Models
+<PageTitle>Estudiantes Registrado</PageTitle>
+<h1>Estudiantes</h1>
+<form class="row g-3">
+  <div class="col-md-5">
+    <label for="inputestudiantesID" class="form-label">estudiantesID</label>
+    <input type="id" class="form-control" id="inputestudiantesID">
+  </div>
+  <div class="col-md-6">
+    <label for="inputFechaNacimiento" class="form-label">FechaNacimiento</label>
+    <input type="FechaNacimiento" class="form-control" id="inputFechaNacimiento">
+  </div>
+  <div class="col-11">
+    <label for="inputMatricula" class="form-label">Matricula</label>
+    <input type="Matricula" class="form-control" id="inputMatricula">
+  </div>
+  <div class="col-11">
+    <label for="inputCarrera" class="form-label">Carrera</label>
+    <input type="Carrera" class="form-control" id="inputCarrera" >
+  </div>
+  <div class="col-md-11">
+    <label for="inputNombre" class="form-label">Nombre</label>
+    <input type="nombre" class="form-control" id="inputNombre">
+  </div>
+   <div class="col-md-11">
+    <label for="inputApellido" class="form-label">Apellido</label>
+    <input type="apellido" class="form-control" id="inputApellido">
+    <br>
+    <button type="button" class="btn btn-primary">Agregar Estudiantes</button> 
+    <button type="button" class="btn btn-warning">Editar</button>
+    <button type="button" class="btn btn-danger">Eliminar</button>
+  </div>
+</form>
+<div class="mt-3"></div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>estudiantesID</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>FechaNacimiento</th>
+            <th>Matricula</th>
+            <th>Carrera</th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach (var estudiantes in estudiantes!) 
+      {
+       <tr>
+        <td>@estudiantes.estdiantesID</td>
+      <td>@estudiantes.Nombres</td>
+        <td>@estudiantes.Apellidos</td>
+        <td>@estudiantes.FechaNacimiento</td>
+        <td>@estudiantes.Matricula</td>
+        <td>@estudiantes.Carrera</td>
+        <td>
+          <div class="btn-group">
+          
+
+          </div>
+        </td>
+       </tr> 
+      }
+    </tbody>
+</table>
+
+@code {
+  public List<Estudiantes>?estudiantes {get; set;}
+  =new List<Estudiantes>(){
+
+new Estudiantes(){
+estdiantesID=1,
+FechaNacimiento= "03-04-19994",
+Matricula= "2011-1179",
+Carrera= "Informatica",
+Nombres= "Eddy",
+Apellidos= "Rodriguez",
+  },
+  new Estudiantes(){
+estdiantesID=2,
+FechaNacimiento= "02-01-2001",
+Matricula= "2010-0179",
+Carrera= "Medicina",
+Nombres= "Jose",
+Apellidos= "Rodriguez",    
+ },
+};
+}
